@@ -51,3 +51,12 @@ for (let i = 1; i <= Number(count); i++) {
 console.log(`|-------|----------|----------|-----------|-------------|`);
 console.log(`| total |   ${zeroPadding(amountFull, 6, ' ')} |   ${zeroPadding(amountFree, 6, ' ')} |    ${zeroPadding(amountReduction, 6, ' ')} |   ${winner()} |`);
 console.log(`|-------------------------------------------------------|`);
+
+const reductionBenefit = amountFull - amountReduction
+const freeBenefit = amountFull - amountFree
+const planDiff = winner().includes('Free') ? freeBenefit - reductionBenefit : reductionBenefit - freeBenefit
+
+console.log(`
+Reduction plan benefit: ¥${reductionBenefit}`);
+console.log(`Free plan benefit: ¥${freeBenefit}`);
+console.log(`Plan diff: ¥${planDiff}`);
