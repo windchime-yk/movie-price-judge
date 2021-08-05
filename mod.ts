@@ -14,20 +14,23 @@ const PRICE_FREE = 0
 
 let pointReduction = 0
 let pointFree = 0
+let amountFull = 0
 let amountReduction = 0
 let amountFree = 0
 
 const zeroPadding = (num: string | number, maxLength: number, fillStr: string) => String(num).padStart(maxLength, fillStr)
 
+// Fullは参考として出しているだけなので、勝敗の中には含めない
 const winner = () => amountFree < amountReduction ? zeroPadding('Free', 9, ' ') : zeroPadding('Reduction', 9, ' ')
 
-console.log(`|--------------------------------------------|`);
-console.log(`|       |        genre         |             |`);
-console.log(`|-------|----------------------|-------------|`);
-console.log(`| count |   Free   | Reduction |     win     |`);
-console.log(`|-------|----------|-----------|-------------|`);
+console.log(`|-------------------------------------------------------|`);
+console.log(`|       |              genre              |             |`);
+console.log(`|-------|---------------------------------|-------------|`);
+console.log(`| count |   Full   |   Free   | Reduction |     win     |`);
+console.log(`|-------|----------|----------|-----------|-------------|`);
 
 for (let i = 1; i <= Number(count); i++) {
+  amountFull += PRICE_FULL
   if (pointFree === 6) {
     pointFree = 0
     amountFree += PRICE_FREE
@@ -42,9 +45,9 @@ for (let i = 1; i <= Number(count); i++) {
     pointReduction += 1
     amountReduction += PRICE_FULL
   }
-  console.log(`|  ${zeroPadding(i, 4, ' ')} |   ${zeroPadding(amountFree, 6, ' ')} |    ${zeroPadding(amountReduction, 6, ' ')} |   ${winner()} |`);
+  console.log(`|  ${zeroPadding(i, 4, ' ')} |   ${zeroPadding(amountFull, 6, ' ')} |   ${zeroPadding(amountFree, 6, ' ')} |    ${zeroPadding(amountReduction, 6, ' ')} |   ${winner()} |`);
 }
 
-console.log(`|-------|----------------------|-------------|`);
-console.log(`| total |   ${zeroPadding(amountFree, 6, ' ')} |    ${zeroPadding(amountReduction, 6, ' ')} |   ${winner()} |`);
-console.log(`|--------------------------------------------|`);
+console.log(`|-------|----------|----------|-----------|-------------|`);
+console.log(`| total |   ${zeroPadding(amountFull, 6, ' ')} |   ${zeroPadding(amountFree, 6, ' ')} |    ${zeroPadding(amountReduction, 6, ' ')} |   ${winner()} |`);
+console.log(`|-------------------------------------------------------|`);
