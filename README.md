@@ -9,7 +9,7 @@ deno run mod.ts <count>
 
 ## 出力例
 ``` bash
-deno run mod.ts 30
+deno run https://pax.deno.dev/windchime-yk/movie-price-judge/mod.ts 30
 ```
 
 ``` bash
