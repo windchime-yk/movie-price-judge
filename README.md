@@ -52,6 +52,11 @@ deno run mod.ts 30
 | total |    54000 |    46800 |     48000 |        Free |
 |-------------------------------------------------------|
 
+Winner Count
+Free plan: 15
+Reduction plan: 6
+Draw: 9
+
 Reduction plan benefit: ¥6000
 Free plan benefit: ¥7200
 Plan diff: ¥1200

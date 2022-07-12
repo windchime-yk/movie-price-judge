@@ -17,6 +17,11 @@ let pointFree = 0
 let amountFull = 0
 let amountReduction = 0
 let amountFree = 0
+const winnerMap = {
+  free: 0,
+  reduction: 0,
+  draw: 0,
+}
 
 const zeroPadding = (num: string | number, maxLength: number, fillStr: string) => String(num).padStart(maxLength, fillStr)
 
@@ -53,6 +58,9 @@ for (let i = 1; i <= Number(count); i++) {
     pointReduction += 1
     amountReduction += PRICE_FULL
   }
+
+  winnerMap[winner().toLowerCase().trim() as 'free' | 'reduction' | 'draw'] += 1
+
   console.log(`|  ${zeroPadding(i, 4, ' ')} |   ${zeroPadding(amountFull, 6, ' ')} |   ${zeroPadding(amountFree, 6, ' ')} |    ${zeroPadding(amountReduction, 6, ' ')} |   ${winner()} |`);
 }
 
@@ -64,6 +72,11 @@ const reductionBenefit = amountFull - amountReduction
 const freeBenefit = amountFull - amountFree
 const planDiff = winner().includes('Free') ? freeBenefit - reductionBenefit : reductionBenefit - freeBenefit
 
+console.log(`
+Winner Count`);
+console.log(`Free plan: ${winnerMap.free}`);
+console.log(`Reduction plan: ${winnerMap.reduction}`);
+console.log(`Draw: ${winnerMap.draw}`);
 console.log(`
 Reduction plan benefit: ¥${reductionBenefit}`);
 console.log(`Free plan benefit: ¥${freeBenefit}`);
