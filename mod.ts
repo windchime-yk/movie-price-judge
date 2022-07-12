@@ -21,7 +21,15 @@ let amountFree = 0
 const zeroPadding = (num: string | number, maxLength: number, fillStr: string) => String(num).padStart(maxLength, fillStr)
 
 // Fullは参考として出しているだけなので、勝敗の中には含めない
-const winner = () => amountFree < amountReduction ? zeroPadding('Free', 9, ' ') : zeroPadding('Reduction', 9, ' ')
+const winner = () => {
+  if (amountFree < amountReduction) {
+    return zeroPadding('Free', 9, ' ')
+  } else if (amountFree === amountReduction) {
+    return zeroPadding('Draw', 9, ' ')
+  } else {
+    return zeroPadding('Reduction', 9, ' ')
+  }
+}
 
 console.log(`|-------------------------------------------------------|`);
 console.log(`|       |              genre              |             |`);
