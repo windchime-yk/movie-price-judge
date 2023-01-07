@@ -1,0 +1,6 @@
+{
+  "tasks": {
+    "judge": "deno run main.ts",
+    "fmt": "deno fmt --ignore=README.md"
+  }
+}

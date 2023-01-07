@@ -4,12 +4,12 @@
 
 ## コマンド
 ``` bash
-deno run mod.ts <count>
+deno task judge <count>
 ```
 
 ## 出力例
 ``` bash
-deno run https://pax.deno.dev/windchime-yk/movie-price-judge/mod.ts 30
+deno run https://pax.deno.dev/windchime-yk/movie-price-judge/main.ts 30
 ```
 
 ``` bash
